@@ -1,0 +1,21 @@
+version: '3'
+services:
+  rider-service:
+    build:
+      context: ./rider-service
+    ports:
+      - "5000:5000"
+    networks:
+      - e-hailing-network
+
+  ride-service:
+    build:
+      context: ./ride-service
+    ports:
+      - "5001:5001"
+    networks:
+      - e-hailing-network
+
+networks:
+  e-hailing-network:
+    driver: bridge
